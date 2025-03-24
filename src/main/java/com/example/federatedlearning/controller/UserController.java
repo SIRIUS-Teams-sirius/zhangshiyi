@@ -33,7 +33,7 @@ public class UserController {
     public Result register(@Validated @RequestBody UserRegisterRequest request) {
         User u = userService.findByUserName(request.getUsername());// 查询用户
         if (u == null) {// 没有占用，注册
-            userService.register(request.getUsername(), request.getPassword(),request.getPassword_2(),
+            userService.register(request.getUsername(), request.getPassword(),/*request.getPassword_2(),*/
                     request.getLocation(), "offline",
                     LocalDateTime.now(), request.getType(),
                     request.getRole(), request.getContact());
@@ -100,6 +100,9 @@ public class UserController {
             String token = JwtUtil.genToken(claims);
             System.out.println(token);
 
+            System.out.println("Generated Token: " + token);
+            System.out.println("Result Object: " + Result.success(token));
+
             // 返回成功的 token
             return ResponseEntity.ok(Result.success(token)); // 返回 token 和 200 状态
         }
@@ -115,7 +118,7 @@ public class UserController {
 
         // 调用服务方法设置用户状态为 offline
         userService.updateStatusByUserId((long) loginUser.getId(), "offline");
-        ThreadLocalUtil.remove();
+//        ThreadLocalUtil.remove();
 
         // 返回成功的结果
         return Result.success("Logout successful");

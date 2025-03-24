@@ -17,9 +17,9 @@ public interface UserMapper {
     User findById(long id);
 
     //添加用户
-    @Insert("insert into data_owners(name,password,location,status,registration_name,type,role,contact)" +
+    @Insert("insert into data_owners(name,password,location,status,registration_time,type,role,contact)" +
             " values(#{name},#{password},#{location},'offline',now(),#{type},#{role},#{contact})")
-    void add(String name, String password, String location, String status, LocalDateTime registration_name, String type, String role, String contact);
+    void add(String name, String password, String location, String status, LocalDateTime registration_time, String type, String role, String contact);
 
     // 更新用户状态为 active
     @Update("UPDATE data_owners SET status=#{status} WHERE id=#{id}")

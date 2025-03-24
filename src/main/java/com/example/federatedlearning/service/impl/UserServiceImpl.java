@@ -29,18 +29,20 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void register(String username, String password, String password_2, String location, String status,
-                         LocalDateTime registrationName, String type, String role, String contact) {
-        if(password.equals(password_2)){
+    public void register(String username, String password, /*String password_2,*/ String location, String status,
+                         LocalDateTime registrationTime, String type, String role, String contact) {
+//        if(password.equals(password_2)){
+//            // 打印接收到的前端数据
+
             // 加密密码
             String md5String = Md5Util.md5(password);
-
+//
             // 调用 Mapper 方法添加用户信息
-            userMapper.add(username, md5String, location, status, registrationName, type, role, contact);
-        }
-        else{
-            throw new IllegalArgumentException("两次输入的密码不匹配");
-        }
+            userMapper.add(username, md5String, location, status, registrationTime, type, role, contact);
+//        }
+//        else{
+//            throw new IllegalArgumentException("两次输入的密码不匹配");
+//        }
     }
 
     @Override

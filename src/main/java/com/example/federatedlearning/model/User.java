@@ -23,7 +23,7 @@ public class User {
 
     @NotEmpty //必须填上登记的名字
     @Pattern(regexp = "^\\S{1,10}$") //限制登记的名字字符数为1-10
-    private LocalDate registration_name;
+    private LocalDate registration_time;
 
     private String type;//类型 ENUM（‘企业’，‘机构’）NOT NULL，
     private String role;

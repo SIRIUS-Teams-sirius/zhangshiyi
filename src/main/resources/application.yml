@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/联邦学习
     username: root
-    password: password
+    password: shujuku
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -17,3 +17,13 @@ mybatis:
     #开启驼峰命名和用下划线命名的自动转换
 server:
   port: 8081
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+    com:
+      example:
+        federatedlearning: DEBUG

@@ -12,7 +12,7 @@ public interface UserService {
     User findByUserName(String username);
 
     //注册
-    void register(String username, String password, String password_2, String location, String status, LocalDateTime registration_name, String type, String role, String contact);
+    void register(String username, String password, /*String password_2,*/ String location, String status, LocalDateTime registration_time, String type, String role, String contact);
 
     // 更新用户状态
     boolean updateStatusByUserId(Long userId, String status);

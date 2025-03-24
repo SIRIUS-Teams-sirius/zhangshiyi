@@ -21,15 +21,15 @@ public class JwtTest {
         //生成
         String token=JWT.create()
                 .withClaim("user",claims)//添加载荷
-                .withExpiresAt(new Date(System.currentTimeMillis() + 1000*60*60*24))//添加过期时间
+                .withExpiresAt(new Date(System.currentTimeMillis() + 1000*60*60*2))//添加过期时间
                 .sign(Algorithm.HMAC256("NIDSFL"));
         System.out.println(token);
     }
    @Test
     public void testParse() {
         String token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-                "eyJ1c2VyIjp7Im5hbWUiOiJKb2huIERvZSIsImlkIjoxfSwiZXhwIjoxNzQxNTA5NjU0fQ." +
-                "imVR4UZO_kP2Aj-Srp6_WfgwKMDbk9CkKQYN6tGhqNs";
+                "eyJ1c2VyIjp7Im5hbWUiOiJKb2huIERvZSIsImlkIjoxfSwiZXhwIjoxNzQyMzgxNTc0fQ." +
+                "ysyvksZJveWYcc6NVKAQ70y16dia9673BgXSkk3s3yw";
 
        JWTVerifier jwtVerifier=JWT.require(Algorithm.HMAC256("NIDSFL")).build();
 
