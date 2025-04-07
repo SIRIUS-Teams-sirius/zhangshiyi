@@ -2,7 +2,11 @@
 spring:
   application:
     name: federatedlearning
-
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: fl
 
 
   datasource:
@@ -19,11 +23,26 @@ server:
   port: 8081
 
 
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        web: DEBUG
+#    com:
+#      example:
+#        federatedlearning: DEBUG
+
 logging:
   level:
+    root: INFO
     org:
       springframework:
         web: DEBUG
+        data:
+          mongodb:
+            core: DEBUG  # 更精确的MongoDB日志控制
     com:
       example:
         federatedlearning: DEBUG
+    org.mongodb.driver: WARN
+
