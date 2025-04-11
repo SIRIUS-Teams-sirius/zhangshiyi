@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "model_results")
-public class TrianResult {
+public class TrainResult {
     @Id
 
     private int id;
